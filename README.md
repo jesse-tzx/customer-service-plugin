@@ -17,6 +17,25 @@
 3. **重启 Chrome**（完全退出，包括托盘图标）
 4. 打开 `chrome://extensions/` 确认插件已出现 ✅
 
+### Mac
+
+**方式一：双击描述文件（推荐）**
+
+1. 下载 [install.mobileconfig](./install.mobileconfig)
+2. **双击运行** → 系统设置会自动打开 → 点击「安装」
+3. **重启 Chrome**（⌘Q 完全退出）
+4. 打开 `chrome://extensions/` 确认插件已出现 ✅
+
+**方式二：终端脚本**
+
+```bash
+# 下载并运行
+curl -o install-mac.sh https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/install-mac.sh
+bash install-mac.sh
+```
+
+然后重启 Chrome。
+
 后续版本更新 Chrome 自动完成，不需要再操作。
 
 ---
