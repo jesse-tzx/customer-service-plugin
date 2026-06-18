@@ -77,11 +77,9 @@ fi
 CODEBASE_URL="$RAW_BASE/extension.crx"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sed -i '' "s|version='[0-9][0-9.]*'|version='$VERSION'|" updates.xml
-  sed -i '' "s|codebase='[^']*'|codebase='$CODEBASE_URL'|" updates.xml
+  sed -i '' "s|version='[0-9][0-9.]*' />|version='$VERSION' />|" updates.xml
 else
-  sed -i "s|version='[0-9][0-9.]*'|version='$VERSION'|" updates.xml
-  sed -i "s|codebase='[^']*'|codebase='$CODEBASE_URL'|" updates.xml
+  sed -i "s|version='[0-9][0-9.]*' />|version='$VERSION' />|" updates.xml
 fi
 ok "updates.xml 已更新 → version=$VERSION"
 
