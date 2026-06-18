@@ -12,7 +12,7 @@ mkdir -p "$POLICY_DIR/managed"
 cat > "$POLICY_FILE" << 'EOF'
 {
   "ExtensionInstallForcelist": [
-    "cmibplmpbmaocmjmmpbjnocmecboiffj;https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/updates.xml"
+    "njjdclibfaedfofiphakngdnglelphje;https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/updates.xml"
   ]
 }
 EOF

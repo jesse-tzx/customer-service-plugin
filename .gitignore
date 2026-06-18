@@ -16,3 +16,5 @@ Thumbs.db
 
 # Node (如果插件用了 npm)
 node_modules/
+src.crx
+src.pem

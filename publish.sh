@@ -50,19 +50,25 @@ mkdir -p build
 
 if [ -n "$CHROME_PATH" ]; then
   info "使用 Chrome 打包: $CHROME_PATH"
-  "$CHROME_PATH" --pack-extension=src --pack-extension-key=key.pem 2>/dev/null || true
+  if [ -f "key.pem" ]; then
+    # 复用已有 key.pem，保证 Extension ID 不变
+    "$CHROME_PATH" --pack-extension=src --pack-extension-key=key.pem 2>/dev/null || true
+  else
+    # 首次打包，Chrome 自动生成 key.pem
+    "$CHROME_PATH" --pack-extension=src 2>/dev/null || true
+    if [ -f "src.pem" ]; then
+      cp src.pem key.pem
+      info "已生成 key.pem（本地保留，不要提交到仓库）"
+    fi
+  fi
   if [ -f "src.crx" ]; then
     mv src.crx build/extension.crx
     ok "打包完成: build/extension.crx"
   else
-    info "Chrome 打包失败，使用 zip 方式..."
-    (cd src && zip -r "../build/extension.crx" . -x '*.DS_Store' '*.git*')
-    ok "zip 打包完成: build/extension.crx"
+    error "Chrome 打包失败，请检查 Chrome 是否安装正确"
   fi
 else
-  info "未找到 Chrome，使用 zip 打包..."
-  (cd src && zip -r "../build/extension.crx" . -x '*.DS_Store' '*.git*')
-  ok "zip 打包完成: build/extension.crx"
+  error "未找到 Chrome，无法打包 .crx"
 fi
 
 # ── 更新 updates.xml ──────────────────────────────────────
