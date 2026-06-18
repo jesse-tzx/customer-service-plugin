@@ -3,6 +3,6 @@
   <app appid='njjdclibfaedfofiphakngdnglelphje'>
     <updatecheck
       codebase='https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/extension.crx'
-      version='5.6' />
+      version='5.8' />
   </app>
 </gupdate>
