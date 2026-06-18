@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "飞猪客服工具箱",
-  "version": "5.6",
+  "version": "5.8",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1msBP/QDnYcvayFv39DSFaIws+RNMhTKeyPvKFf1y60YKOmhz7A89ORkn8YEDj98OFC0Gl9YxXt3UMHFDd1VTDKSsqQH4G/85hywlRF8qs6fdo5BrN4GnQuM0h183k7hXqd+DNGCht/2bVOkEvmXgGJmZDkrA0rbDhPPRjamtNGjPGTXp/CZlFPOYCvp5VrRDswfoP1RaDeMDk04Ir3TG1YYtJO2tFAgCUcjaG55gPkGWJ6BLFnuXZ7korAETFNYzourCHNpR5KkMI+0NWQaM0gIg0CW+KsT+fhqlkRuSilMGJ+menGC+U4vhu02aeqVGRB82hIPI2PRf4GX2RepJwIDAQAB",
   "description": "飞猪国际机票客服提效工具集",
   "action": {
