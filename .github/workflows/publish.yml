@@ -6,6 +6,9 @@ on:
     paths:
       - 'src/manifest.json'
 
+permissions:
+  contents: write
+
 jobs:
   pack-and-publish:
     runs-on: ubuntu-latest
