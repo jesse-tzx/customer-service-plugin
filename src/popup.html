@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 320px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .header { text-align: center; padding: 8px 0 16px; border-bottom: 1px solid #eee; margin-bottom: 16px; }
+    .header h1 { font-size: 16px; color: #333; }
+    .header p { font-size: 11px; color: #999; margin-top: 4px; }
+
+    .tool-list { list-style: none; }
+    .tool-item {
+      background: #f8f9fa; border-radius: 8px; padding: 12px; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 12px; cursor: pointer;
+      border-left: 3px solid #667eea; transition: background 0.2s;
+    }
+    .tool-item:hover { background: #eef1f8; }
+    .tool-item.has-update { border-left-color: #ff4d4f; }
+    .tool-icon { font-size: 24px; flex-shrink: 0; width: 36px; text-align: center; }
+    .tool-info { flex: 1; min-width: 0; }
+    .tool-name { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 2px; }
+    .tool-desc { font-size: 11px; color: #888; line-height: 1.3; }
+    .tool-badge {
+      font-size: 10px; padding: 2px 6px; border-radius: 4px; flex-shrink: 0;
+    }
+    .badge-update { background: #fff0f0; color: #ff4d4f; }
+    .badge-latest { background: #f0f4ff; color: #667eea; }
+
+    .footer { text-align: center; font-size: 10px; color: #bbb; padding-top: 12px; border-top: 1px solid #eee; margin-top: 12px; }
+    .empty-tip { text-align: center; color: #999; font-size: 12px; padding: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>飞猪客服工具箱</h1>
+    <p id="version-text">选择需要的工具开始工作</p>
+  </div>
+
+  <ul class="tool-list" id="tool-list">
+  </ul>
+
+  <div class="footer">
+    飞猪客服工具箱 &middot; 让客服少加班 &#9996;
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

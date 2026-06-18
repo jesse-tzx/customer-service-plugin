@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 340px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .back-btn { background: none; border: none; color: #667eea; font-size: 13px; cursor: pointer; padding: 4px 0; margin-bottom: 8px; }
+    .back-btn:hover { text-decoration: underline; }
+    .header { text-align: center; padding: 8px 0 12px; border-bottom: 1px solid #eee; margin-bottom: 12px; }
+    .header h1 { font-size: 15px; color: #333; }
+    .header p { font-size: 11px; color: #999; margin-top: 4px; }
+    .step { background: #f8f9fa; border-radius: 6px; padding: 10px; margin-bottom: 8px; border-left: 3px solid #667eea; }
+    .step.green { border-left-color: #11998e; }
+    .step h3 { font-size: 12px; color: #333; margin-bottom: 4px; }
+    .step p { font-size: 11px; color: #666; line-height: 1.4; }
+    .tip { background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 8px; font-size: 10px; color: #856404; line-height: 1.4; margin-top: 8px; }
+    .footer { text-align: center; font-size: 10px; color: #bbb; padding-top: 8px; border-top: 1px solid #eee; margin-top: 8px; }
+    .stats { background: #f0f4ff; border-radius: 6px; padding: 10px; margin-top: 10px; border-left: 3px solid #667eea; }
+    .stats h3 { font-size: 12px; color: #333; margin-bottom: 6px; }
+    .stats-row { display: flex; justify-content: space-between; font-size: 11px; color: #555; padding: 2px 0; }
+    .stats-row span:last-child { font-weight: 600; color: #333; }
+    .stats-actions { display: flex; gap: 6px; margin-top: 8px; }
+    .stats-actions button {
+      flex: 1; font-size: 10px; padding: 4px 0; border: 1px solid #667eea;
+      background: #fff; color: #667eea; border-radius: 4px; cursor: pointer;
+    }
+    .stats-actions button:hover { background: #667eea; color: #fff; }
+    .update-box {
+      background: #fff0f0; border: 1px solid #ff4d4f; border-radius: 6px;
+      padding: 10px; margin-top: 10px; display: none;
+    }
+    .update-box .update-title {
+      font-size: 12px; font-weight: 600; color: #cf1322; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .update-box .update-notes {
+      font-size: 11px; color: #666; line-height: 1.4; margin-bottom: 8px;
+    }
+    .update-actions { display: flex; gap: 6px; }
+    .update-actions button {
+      flex: 1; font-size: 10px; padding: 5px 0; border-radius: 4px; cursor: pointer; border: none;
+    }
+    .btn-download { background: #ff4d4f; color: #fff; }
+    .btn-download:hover { background: #cf1322; }
+    .btn-skip { background: #f5f5f5; color: #666; border: 1px solid #d9d9d9 !important; }
+    .btn-skip:hover { background: #e8e8e8; }
+  </style>
+</head>
+<body>
+  <button class="back-btn" id="btn-back">&larr; 返回工具箱</button>
+
+  <div class="header">
+    <h1>ESU 一键报备</h1>
+    <p id="version-text">v3.6 - 飞猪国际机票客服提效工具</p>
+  </div>
+
+  <div class="step">
+    <h3>第一步：打开飞猪客服XP页面</h3>
+    <p>切换到飞猪客服XP页面后<br>点击下方的<strong style="color:#667eea"> 开始提取数据</strong> 按钮</p>
+  </div>
+
+  <div style="text-align:center;margin:12px 0;">
+    <button id="btn-extract" style="background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 2px 8px rgba(102,126,234,0.4);">
+      📋 开始提取数据
+    </button>
+  </div>
+
+  <div id="extract-status" style="text-align:center;font-size:12px;color:#888;margin-bottom:8px;min-height:16px;"></div>
+
+  <div class="step green">
+    <h3>第二步：宜搭页面自动填充</h3>
+    <p>数据提取后会自动打开宜搭报备表单<br>点击右侧<strong style="color:#11998e">&#10024; 一键填充ESU数据</strong> 按钮</p>
+  </div>
+
+  <div class="tip">
+    &#128161; 提取7个字段：业务场景、工单编号、会员名、会员等级、订单编号、问题描述、会员诉求。<br>
+    出票渠道和开票航司二字码需手动填写。
+  </div>
+
+  <div class="update-box" id="update-box">
+    <div class="update-title">&#128293; 发现新版本 <span id="update-version"></span></div>
+    <div class="update-notes" id="update-notes">发现新版本，建议更新以获得更好的体验。</div>
+    <div class="update-actions">
+      <button class="btn-download" id="btn-download-update">下载更新</button>
+      <button class="btn-skip" id="btn-skip-update">忽略本次</button>
+    </div>
+  </div>
+
+  <div class="stats" id="stats-section">
+    <h3>&#128202; 使用统计</h3>
+    <div class="stats-row"><span>使用次数</span><span id="stat-count">0 次</span></div>
+    <div class="stats-row"><span>首次使用</span><span id="stat-first">-</span></div>
+    <div class="stats-row"><span>上次使用</span><span id="stat-last">-</span></div>
+    <div class="stats-row"><span>当前版本</span><span id="stat-version">-</span></div>
+    <div class="stats-actions">
+      <button id="btn-check-update">检查更新</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    ESU 一键报备 &middot; 让客服少加班 &#9996;
+  </div>
+
+  <script src="tools/esu.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "tools": [
+    {
+      "id": "esu",
+      "type": "extract",
+      "name": "ESU 一键报备",
+      "description": "自动提取工单数据并填充宜搭表单",
+      "icon": "icon-esu.png",
+      "version": "3.6",
+      "page": "tools/esu.html",
+      "versionCheckUrl": "https://your-server.com/esu-version.json",
+      "enabled": true
+    },
+    {
+      "id": "recall_restore",
+      "type": "panel",
+      "name": "下单页还原",
+      "description": "查看客户下单页/订单详情页，自动带入淘宝订单号",
+      "icon": "🔍",
+      "version": "1.0",
+      "url": "https://recall.alibaba-inc.com/#/workspace/9/restore/scene?id=5",
+      "enabled": true
+    }
+  ],
+  "settings": {
+    "reportUrl": "http://localhost:3000/esu-report",
+    "reportEnabled": true,
+    "updateCheckIntervalHours": 2
+  }
+}

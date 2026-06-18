@@ -2,7 +2,7 @@
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
   <app appid='__EXTENSION_ID__'>
     <updatecheck
-      codebase='https://github.com/jesse-tsx/customer-service-plugin/releases/download/v1.0.0/extension.crx'
-      version='1.0.0' />
+      codebase='https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/extension.crx'
+      version='5.3' />
   </app>
 </gupdate>

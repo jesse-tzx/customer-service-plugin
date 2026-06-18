@@ -1,0 +1,9 @@
+/**
+ * content_xp.css - XP页面注入按钮样式
+ */
+#esu-copy-btn button:hover {
+  opacity: 0.95;
+}
+#esu-copy-btn button:active {
+  transform: translateY(0) scale(0.98) !important;
+}

@@ -1,0 +1,86 @@
+{
+  "manifest_version": 3,
+  "name": "飞猪客服工具箱",
+  "version": "5.3",
+  "description": "飞猪国际机票客服提效工具集",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "scripting",
+    "storage",
+    "tabs",
+    "declarativeNetRequest",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://fliggy.service.fliggy.com/*",
+    "*://kefu.fliggy.com/*",
+    "*://yida.alibaba-inc.com/*",
+    "*://recall.alibaba-inc.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "iframe_unblock",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://fliggy.service.fliggy.com/*",
+        "*://kefu.fliggy.com/*"
+      ],
+      "js": [
+        "content_xp.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://yida.alibaba-inc.com/*"
+      ],
+      "js": [
+        "content_yida.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://recall.alibaba-inc.com/*"
+      ],
+      "js": [
+        "content_recall.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "tools.json",
+        "lib/*",
+        "icon-esu.png"
+      ],
+      "matches": [
+        "*://kefu.fliggy.com/*",
+        "*://fliggy.service.fliggy.com/*"
+      ]
+    }
+  ]
+}
