@@ -8,7 +8,7 @@
 
 ---
 
-## 同事安装（一次性）
+## 客服小二安装（一次性）
 
 ### Windows
 
@@ -21,7 +21,7 @@
 
 **方式二：外部扩展（不需要注册表）**
 
-1. 下载 `install-external/install-windows.bat` 和 `install-external/njjdclibfaedfofiphakngdnglelphje.json`
+1. 下载 [install-windows.bat](./install-external/install-windows.bat) 和 [njjdclibfaedfofiphakngdnglelphje.json](./install-external/njjdclibfaedfofiphakngdnglelphje.json)
 2. **双击运行** `install-windows.bat`
 3. **重启 Chrome**（完全退出，包括托盘图标）
 4. Chrome 会弹出确认框 → 点击"启用扩展程序"
@@ -105,7 +105,7 @@ claude skill install ./skills/chrome-extension-publisher
 - 已加入仓库 collaborators（联系 jesse-tzx）
 - 已配置 GitHub 凭证（`gh auth login`）
 
-同事的 Chrome 会在几小时内自动更新，也可手动触发：`chrome://extensions/` → 点击刷新按钮。
+客服小二的 Chrome 会在几小时内自动更新，也可手动触发：`chrome://extensions/` → 点击刷新按钮。
 
 ---
 
@@ -163,7 +163,7 @@ sed -i '' 's/__EXTENSION_ID__/你的真实ID/g' updates.xml install-user.reg ins
   → 更新 updates.xml 版本号
   → git push（extension.crx + updates.xml）
 
-同事 Chrome:
+客服小二 Chrome:
   → 注册表策略 → 指向 updates.xml（GitHub raw URL，固定不变）
   → Chrome 定期检查 updates.xml
   → 发现新版本 → 下载 extension.crx → 自动安装
@@ -185,7 +185,7 @@ GitHub Actions (自动):
   → 更新 updates.xml 版本号
   → git commit + push
   ↓
-同事 Chrome:
+客服小二 Chrome:
   → 检测到 updates.xml 版本变化
   → 自动下载并安装新版本
 ```
