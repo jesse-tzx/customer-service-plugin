@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>ExtensionInstallForcelist</key>
+            <array>
+                <string>cmibplmpbmaocmjmmpbjnocmecboiffj;https://raw.githubusercontent.com/jesse-tzx/customer-service-plugin/main/updates.xml</string>
+            </array>
+            <key>PayloadDescription</key>
+            <string>飞猪客服工具箱 Chrome 插件自动安装</string>
+            <key>PayloadDisplayName</key>
+            <string>飞猪客服工具箱</string>
+            <key>PayloadIdentifier</key>
+            <string>com.google.chrome.fliggy-toolbox</string>
+            <key>PayloadType</key>
+            <string>com.google.Chrome</string>
+            <key>PayloadUUID</key>
+            <string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>安装飞猪客服工具箱 Chrome 插件</string>
+    <key>PayloadDisplayName</key>
+    <string>飞猪客服工具箱 - Chrome 插件</string>
+    <key>PayloadIdentifier</key>
+    <string>com.fliggy.chrome-toolbox</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>F9E8D7C6-B5A4-3210-9876-543210FEDCBA</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
